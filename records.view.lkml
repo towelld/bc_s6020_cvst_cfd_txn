@@ -11,6 +11,20 @@ view: records {
     sql: ${TABLE}.ActiveStatus ;;
   }
 
+  dimension: age_created {
+    type: tier
+    tiers: [4,8,16]
+    style: integer
+    sql: DATEDIFF(DAY, ${TABLE}.DateTimeCreated, GETDATE()) ;;
+  }
+
+  dimension: age_settle {
+    type: tier
+    tiers: [4,8,16]
+    style: integer
+    sql: DATEDIFF(DAY, GETDATE(), ${TABLE}.SettleDate ) ;;
+  }
+
   dimension: allow_purge {
     type: string
     sql: ${TABLE}.AllowPurge ;;
