@@ -41,7 +41,7 @@ view: records {
     sql: ${TABLE}.Business_Key ;;
   }
 
-  dimension: business_key {
+  dimension: businesskey {
     type: string
     sql: ${TABLE}.BusinessKey ;;
   }

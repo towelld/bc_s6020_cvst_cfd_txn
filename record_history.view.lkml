@@ -46,7 +46,7 @@ view: record_history {
     sql: ${TABLE}.Business_Key ;;
   }
 
-  dimension: business_key {
+  dimension: businesskey {
     type: string
     sql: ${TABLE}.BusinessKey ;;
   }
