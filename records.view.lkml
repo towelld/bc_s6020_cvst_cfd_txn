@@ -257,14 +257,9 @@ view: records {
     sql: ${TABLE}.SettleAmt ;;
   }
 
-  dimension: settle_amt_money {
+  dimension: settle_amt_usd {
     type: number
-    sql: ${TABLE}.SettleAmtMoney ;;
-  }
-
-  dimension: settle_amt_money_currency {
-    type: string
-    sql: ${TABLE}.SettleAmtMoneyCurrency ;;
+    sql: ${TABLE}.SettleAmtUsd ;;
   }
 
   dimension_group: settle {
@@ -376,6 +371,12 @@ view: records {
   measure: sum_settle_amt {
     type: sum
     sql: ${settle_amt};;
+    value_format: "#,##0.00"
+  }
+
+  measure: sum_settle_amt_usd {
+    type: sum
+    sql: ${settle_amt_usd};;
     value_format: "#,##0.00"
   }
 }
