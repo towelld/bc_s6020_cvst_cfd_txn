@@ -20,7 +20,7 @@ view: records {
 
   dimension: age_settle {
     type: tier
-    tiers: [4,8,16]
+    tiers: [0,4,8,16]
     style: integer
     sql: DATEDIFF(DAY, GETDATE(), ${TABLE}.SettleDate ) ;;
   }
