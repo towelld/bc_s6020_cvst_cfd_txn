@@ -226,7 +226,7 @@
         records.age_created: Age
 
     - name: break_count_by_settle_chart
-      title: Break Count by Account by Value Date
+      title: Break Count by Account by Settlement Date
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_column
@@ -291,3 +291,40 @@
           __FILE: s6020_cvst_cfd_txn/s6020_transaction_summary.dashboard.lookml, __LINE_NUM: 287}],
       __FILE: s6020_cvst_cfd_txn/s6020_transaction_summary.dashboard.lookml, __LINE_NUM: 283}]
       hidden_series: []
+
+    - name: break_count_by_settle_table
+      title: Detail
+      model: bc_s6020_cvst_cfd_txn
+      explore: records
+      type: table
+      left: 0
+      top: 12
+      height: 6
+      width: 11
+      fields: [records.facing_pb, records.age_settle, records.count]
+      pivots: [records.age_settle]
+      fill_fields: [records.age_settle]
+      filters:
+        records.system: Calypso
+        records.match_status: Unmatched
+      listen:
+        facing_pb: records.facing_pb
+      sorts: [records.facing_pb, records.age_settle]
+      limit: 500
+      total: true
+      show_view_names: false
+      show_row_numbers: false
+      truncate_column_names: false
+      hide_totals: false
+      hide_row_totals: false
+      table_theme: gray
+      limit_displayed_rows: false
+      enable_conditional_formatting: false
+      conditional_formatting_ignored_fields: []
+      conditional_formatting_include_totals: false
+      conditional_formatting_include_nulls: false
+      series_types: {}
+      series_labels:
+        records.facing_pb: Account/PB
+        records.count: Count
+        records.age_settle: Settlement Date
