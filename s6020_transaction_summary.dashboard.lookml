@@ -381,11 +381,11 @@
       conditional_formatting_include_nulls: false
       series_types: {}
       series_colors:
-        Below 0 - 0 - records.count: "#ff0000"
-        0 to 3 - 1 - records.count: "#df5555"
-        4 to 7 - 2 - records.count: "#eaa153"
-        8 to 15 - 3 - records.count: "#92c26e"
-        16 or Above - 4 - records.count: "#646569"
+        Below 0 - 0 - records.sum_settle_amt_usd: "#ff0000"
+        0 to 3 - 1 - records.sum_settle_amt_usd: "#df5555"
+        4 to 7 - 2 - records.sum_settle_amt_usd: "#eaa153"
+        8 to 15 - 3 - records.sum_settle_amt_usd: "#92c26e"
+        16 or Above - 4 - records.sum_settle_amt_usd: "#646569"
       y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: left,
           showLabels: false, showValues: true, tickDensity: default, tickDensityCustom: 5,
           type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: Below
