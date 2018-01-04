@@ -276,13 +276,8 @@
       conditional_formatting_include_nulls: false
       series_types: {}
       series_colors:
-        Below 4 - 0 - records.count: "#92c26e"
-        4 to 7 - 1 - records.count: "#eaa153"
-        8 to 15 - 2 - records.count: "#df5555"
-        16 or Above - 3 - records.count: "#ff0000"
-      y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: left,
-          showLabels: false, showValues: true, tickDensity: default, tickDensityCustom: 5,
-          type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: Below
-                4, name: Below 4, axisId: records.count}, {id: 4 to 7, name: 4 to 7, axisId: records.count},
-            {id: 8 to 15, name: 8 to 15, axisId: records.count}, {id: 16 or Above, name: 16
-                or Above, axisId: records.count}]}]
+        Below 0 - 0 - records.count: "#ff0000"
+        0 to 3 - 1 - records.count: "#df5555"
+        4 to 7 - 2 - records.count: "#eaa153"
+        8 to 15 - 3 - records.count: "#92c26e"
+        16 or Above - 4 - records.count: "#646569"
