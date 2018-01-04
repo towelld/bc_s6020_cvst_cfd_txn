@@ -281,3 +281,13 @@
         4 to 7 - 2 - records.count: "#eaa153"
         8 to 15 - 3 - records.count: "#92c26e"
         16 or Above - 4 - records.count: "#646569"
+      y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: left,
+      showLabels: false, showValues: true, tickDensity: default, tickDensityCustom: 5,
+      type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: Below
+          4, name: Below 4, axisId: records.count, __FILE: s6020_cvst_cfd_txn/s6020_transaction_summary.dashboard.lookml,
+          __LINE_NUM: 285}, {id: 4 to 7, name: 4 to 7, axisId: records.count, __FILE: s6020_cvst_cfd_txn/s6020_transaction_summary.dashboard.lookml,
+          __LINE_NUM: 286}, {id: 8 to 15, name: 8 to 15, axisId: records.count, __FILE: s6020_cvst_cfd_txn/s6020_transaction_summary.dashboard.lookml,
+          __LINE_NUM: 287}, {id: 16 or Above, name: 16 or Above, axisId: records.count,
+          __FILE: s6020_cvst_cfd_txn/s6020_transaction_summary.dashboard.lookml, __LINE_NUM: 287}],
+      __FILE: s6020_cvst_cfd_txn/s6020_transaction_summary.dashboard.lookml, __LINE_NUM: 283}]
+      hidden_series: []
