@@ -50,6 +50,8 @@ explore: record_history {
   }
 }
 
-explore: records {}
+explore: records {
+  persist_for: "5 minutes"
+}
 
 explore: user_audit {}
