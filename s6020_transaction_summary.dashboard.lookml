@@ -396,3 +396,40 @@
               __FILE: i6035_cvst_cfd_transaction/s6020_transaction_summary.dashboard.lookml,
               __LINE_NUM: 81}], __FILE: i6035_cvst_cfd_transaction/s6020_transaction_summary.dashboard.lookml,
           __LINE_NUM: 77}]
+
+    - name: break_value_by_settle_table
+      title: Detail
+      model: bc_s6020_cvst_cfd_txn
+      explore: records
+      type: table
+      left: 12
+      top: 10
+      height: 6
+      width: 11
+      fields: [records.facing_pb, records.age_settle, records.sum_settle_amt_usd]
+      pivots: [records.age_settle]
+      fill_fields: [records.age_settle]
+      filters:
+        records.system: Calypso
+        records.match_status: Unmatched
+      listen:
+        facing_pb: records.facing_pb
+      sorts: [records.facing_pb, records.age_settle]
+      limit: 500
+      total: true
+      show_view_names: false
+      show_row_numbers: false
+      truncate_column_names: false
+      hide_totals: false
+      hide_row_totals: false
+      table_theme: gray
+      limit_displayed_rows: false
+      enable_conditional_formatting: false
+      conditional_formatting_ignored_fields: []
+      conditional_formatting_include_totals: false
+      conditional_formatting_include_nulls: false
+      series_types: {}
+      series_labels:
+        records.facing_pb: Account/PB
+        records.sum_settle_amt_usd: Value (USD)
+        records.age_settle: Settlement Date
