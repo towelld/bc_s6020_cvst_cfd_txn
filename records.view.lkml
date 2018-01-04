@@ -80,6 +80,7 @@ view: records {
     timeframes: [date, week, month, time]
     convert_tz: no
     sql: ${TABLE}.DateTimeCreated ;;
+    label: "Date Created"
   }
 
   dimension: desk {
@@ -100,6 +101,7 @@ view: records {
   dimension: facing_pb {
     type: string
     sql: ${TABLE}.FacingPB ;;
+    label: "Account/PB"
   }
 
   dimension: gross_price {
@@ -157,9 +159,12 @@ view: records {
     sql: ${TABLE}.LastActionType ;;
   }
 
-  dimension: last_updated {
-    type: string
+  dimension_group: last_updated {
+    type: time
+    timeframes: [date, week, month, time]
+    convert_tz: no
     sql: ${TABLE}.LastUpdated ;;
+    label: "Date Updated"
   }
 
   dimension: latest_comment {
@@ -255,11 +260,15 @@ view: records {
   dimension: settle_amt {
     type: number
     sql: ${TABLE}.SettleAmt ;;
+    label: "Settle Amount"
+    value_format: "#,##0.00"
   }
 
   dimension: settle_amt_usd {
     type: number
     sql: ${TABLE}.SettleAmtUsd ;;
+    label: "Settle Amount (USD)"
+    value_format: "#,##0.00"
   }
 
   dimension_group: settle {
@@ -280,6 +289,7 @@ view: records {
   dimension: settle_price {
     type: number
     sql: ${TABLE}.SettlePrice ;;
+    value_format: "#,##0.00"
   }
 
   dimension: sort_order {
@@ -354,29 +364,49 @@ view: records {
 
   measure: count {
     type: count
-    drill_fields: []
+    drill_fields: [transaction_record*]
   }
 
   measure: count_percent {
     type: percent_of_total
     sql: ${count};;
+    drill_fields: [transaction_record*]
   }
 
   measure: sum_quantity {
     type: sum
     sql: ${quantity};;
     value_format: "#,##0.00"
+    drill_fields: [transaction_record*]
   }
 
   measure: sum_settle_amt {
     type: sum
     sql: ${settle_amt};;
     value_format: "#,##0.00"
+    drill_fields: [transaction_record*]
   }
 
   measure: sum_settle_amt_usd {
     type: sum
     sql: ${settle_amt_usd};;
     value_format: "#,##0.00"
+    drill_fields: [transaction_record*]
+  }
+  set: transaction_record {
+    fields: [
+      date_time_created_date,
+      last_updated_date,
+      age_created,
+      facing_pb,
+      acc_code,
+      isin,
+      quantity,
+      settle_price,
+      sccy,
+      settle_amt,
+      settle_amt_usd,
+      settle_date
+    ]
   }
 }
