@@ -231,7 +231,7 @@
       explore: records
       type: looker_column
       left: 0
-      top: 9
+      top: 7
       height: 3
       width: 11
       fields: [records.count, records.system, records.age_settle]
@@ -298,7 +298,7 @@
       explore: records
       type: table
       left: 0
-      top: 12
+      top: 10
       height: 6
       width: 11
       fields: [records.facing_pb, records.age_settle, records.count]
@@ -335,7 +335,7 @@
       explore: records
       type: looker_column
       left: 12
-      top: 9
+      top: 7
       height: 3
       width: 11
       fields: [records.system, records.age_settle, records.sum_settle_amt_usd]
