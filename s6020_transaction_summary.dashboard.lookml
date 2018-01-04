@@ -328,3 +328,71 @@
         records.facing_pb: Account/PB
         records.count: Count
         records.age_settle: Settlement Date
+
+    - name: break_value_by_settle_chart
+      title: Break Value (USD) by Account by Settlement Date
+      model: bc_s6020_cvst_cfd_txn
+      explore: records
+      type: looker_column
+      left: 12
+      top: 9
+      height: 3
+      width: 11
+      fields: [records.system, records.age_settle, records.sum_settle_amt_usd]
+      pivots: [records.age_settle]
+      fill_fields: [records.age_settle]
+      filters:
+        records.system: Calypso
+        records.match_status: Unmatched
+      listen:
+        facing_pb: records.facing_pb
+      sorts: [records.age_settle, records.sum_settle_amt_usd desc 0]
+      limit: 500
+      column_limit: 50
+      stacking: ''
+      show_value_labels: true
+      label_density: 25
+      legend_transaction: center
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: true
+      limit_displayed_rows: false
+      y_axis_combined: true
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: false
+      show_x_axis_ticks: false
+      x_axis_scale: auto
+      y_axis_scale_mode: linear
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      show_row_numbers: true
+      truncate_column_names: false
+      hide_totals: false
+      hide_row_totals: false
+      table_theme: editable
+      enable_conditional_formatting: false
+      conditional_formatting_include_totals: false
+      conditional_formatting_include_nulls: false
+      series_types: {}
+      series_colors:
+        Below 0 - 0 - records.count: "#ff0000"
+        0 to 3 - 1 - records.count: "#df5555"
+        4 to 7 - 2 - records.count: "#eaa153"
+        8 to 15 - 3 - records.count: "#92c26e"
+        16 or Above - 4 - records.count: "#646569"
+      y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: left,
+          showLabels: false, showValues: true, tickDensity: default, tickDensityCustom: 5,
+          type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: Below
+                4, name: Below 4, axisId: records.sum_settle_amt_usd, __FILE: i6035_cvst_cfd_transaction/s6020_transaction_summary.dashboard.lookml,
+              __LINE_NUM: 79}, {id: 4 to 7, name: 4 to 7, axisId: records.sum_settle_amt_usd, __FILE: i6035_cvst_cfd_transaction/s6020_transaction_summary.dashboard.lookml,
+              __LINE_NUM: 80}, {id: 8 to 15, name: 8 to 15, axisId: records.sum_settle_amt_usd, __FILE: i6035_cvst_cfd_transaction/s6020_transaction_summary.dashboard.lookml,
+              __LINE_NUM: 81}, {id: 16 or Above, name: 16 or Above, axisId: records.sum_settle_amt_usd,
+              __FILE: i6035_cvst_cfd_transaction/s6020_transaction_summary.dashboard.lookml,
+              __LINE_NUM: 81}], __FILE: i6035_cvst_cfd_transaction/s6020_transaction_summary.dashboard.lookml,
+          __LINE_NUM: 77}]
