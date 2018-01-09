@@ -441,7 +441,7 @@
       type: looker_column
       left: 0
       top: 14
-      height: 6
+      height: 4
       width: 7
       fields: [match_jobs.date_time_stamp_date, match_jobs.sum_matched]
       fill_fields: [match_jobs.date_time_stamp_date]
@@ -485,7 +485,7 @@
       type: looker_column
       left: 8
       top: 14
-      height: 6
+      height: 4
       width: 7
       fields: [user_session_audit.full_user_name, user_audit.date_time_stamp_date, user_audit.count]
       pivots: [user_session_audit.full_user_name]
@@ -542,7 +542,7 @@
       type: looker_area
       left: 16
       top: 14
-      height: 6
+      height: 4
       width: 7
       fields: [match_jobs.date_time_stamp_date, match_jobs.average_unmatched]
       filters:
