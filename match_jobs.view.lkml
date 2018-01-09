@@ -1,9 +1,12 @@
 view: match_jobs {
   sql_table_name: BluecrestS6020CvstCfdTxnRec.MatchJobs ;;
 
-  dimension: date_time_stamp {
-    type: string
+  dimension_group: date_time_stamp {
+    type: time
+    timeframes: [date, week, month, time]
+    convert_tz: no
     sql: ${TABLE}.DateTimeStamp ;;
+    label: "Match Date"
   }
 
   dimension: duration {
@@ -51,6 +54,11 @@ view: match_jobs {
     sql: ${TABLE}.NumberOfSuggestedRecords ;;
   }
 
+  dimension: number_of_unmatched_records {
+    type: number
+    sql: ${TABLE}.NumberOfRecords - ${TABLE}.NumberOfMatchedRecords ;;
+  }
+
   dimension: pk {
     type: string
     sql: ${TABLE}.Pk ;;
@@ -74,5 +82,35 @@ view: match_jobs {
   measure: count {
     type: count
     drill_fields: [rec_name]
+  }
+
+  measure: sum_records {
+    type: sum
+    sql: ${number_of_records};;
+    value_format: "#,##0"
+  }
+
+  measure: sum_unmatched {
+    type: sum
+    sql: ${number_of_unmatched_records};;
+    value_format: "#,##0"
+  }
+
+  measure: average_unmatched {
+    type: average
+    sql: ${number_of_unmatched_records};;
+    value_format: "#,##0"
+  }
+
+  measure: sum_matched {
+    type: sum
+    sql: ${number_of_matched_records};;
+    value_format: "#,##0"
+  }
+
+  measure: average_matched {
+    type: average
+    sql: ${number_of_matched_records};;
+    value_format: "#,##0"
   }
 }
