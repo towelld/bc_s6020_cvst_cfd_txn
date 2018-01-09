@@ -434,19 +434,19 @@
         records.sum_settle_amt_usd: Value (USD)
         records.age_settle: Settlement Date
 
-    - name: automatch_count_last_28_days
-      title: Auto Matched Count - Last 28 Days
+    - name: automatch_count_last_7_days
+      title: Auto Matched Count - Last 7 Days
       model: bc_s6020_cvst_cfd_txn
       explore: match_jobs
       type: looker_column
       left: 0
       top: 14
       height: 6
-      width: 11
+      width: 7
       fields: [match_jobs.date_time_stamp_date, match_jobs.sum_matched]
       fill_fields: [match_jobs.date_time_stamp_date]
       filters:
-        match_jobs.date_time_stamp_date: 28 days
+        match_jobs.date_time_stamp_date: 7 days
       sorts: [match_jobs.date_time_stamp_date desc]
       limit: 500
       stacking: ''
@@ -478,21 +478,21 @@
           type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: match_jobs.sum_matched,
               name: Match Jobs Sum Matched, axisId: match_jobs.sum_matched}]}]
 
-    - name: manualmatch_count_last_28_days
-      title: Manual Matched Count - Last 28 Days
+    - name: manualmatch_count_last_7_days
+      title: Manual Matched Count - Last 7 Days
       model: bc_s6020_cvst_cfd_txn
       explore: user_audit
       type: looker_column
-      left: 12
+      left: 8
       top: 14
       height: 6
-      width: 11
+      width: 7
       fields: [user_session_audit.full_user_name, user_audit.date_time_stamp_date, user_audit.count]
       pivots: [user_session_audit.full_user_name]
       fill_fields: [user_audit.date_time_stamp_date]
       filters:
         user_audit.action: Accept,Match
-        user_audit.date_time_stamp_date: 28 days
+        user_audit.date_time_stamp_date: 7 days
       sorts: [user_audit.date_time_stamp_date desc, user_audit.count desc 0, user_session_audit.full_user_name]
       limit: 500
       stacking: normal
@@ -535,18 +535,18 @@
             {id: Spencer, name: Spencer, axisId: user_audit.count}, {id: Yogesh, name: Yogesh,
               axisId: user_audit.count}]}]
 
-    - name: unmatch_count_last_28_days
-      title: Unmatched Count - Last 28 Days
+    - name: unmatch_count_last_7_days
+      title: Unmatched Count - Last 7 Days
       model: bc_s6020_cvst_cfd_txn
       explore: match_jobs
       type: looker_area
-      left: 0
-      top: 20
-      height: 3
-      width: 23
+      left: 16
+      top: 14
+      height: 6
+      width: 7
       fields: [match_jobs.date_time_stamp_date, match_jobs.average_unmatched]
       filters:
-        match_jobs.date_time_stamp_date: 28 days
+        match_jobs.date_time_stamp_date: 7 days
       sorts: [match_jobs.date_time_stamp_date]
       limit: 500
       stacking: ''
