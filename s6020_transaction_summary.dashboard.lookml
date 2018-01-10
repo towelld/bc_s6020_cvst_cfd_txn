@@ -19,13 +19,197 @@
     field: records.facing_pb
 
   elements:
+
+    - name: matched_percentage
+      title: Matched Percentage
+      model: bc_s6020_cvst_cfd_txn
+      explore: records
+      type: looker_bar
+      left: 0
+      top: 0
+      height: 4
+      width: 6
+      fields: [records.system, records.match_status, records.count]
+      pivots: [records.match_status]
+      filters:
+        records.system: "-Calypso"
+      sorts: [records.count desc 0, records.match_status]
+      limit: 500
+      stacking: percent
+      show_value_labels: false
+      label_density: 25
+      legend_position: center
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: true
+      limit_displayed_rows: false
+      y_axis_combined: true
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: false
+      show_x_axis_ticks: true
+      x_axis_scale: auto
+      y_axis_scale_mode: linear
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      value_labels: legend
+      label_type: labPer
+      series_types: {}
+      series_colors:
+        Matched - records.count: "#92c26e"
+        Unmatched - records.count: "#646569"
+      y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+          showLabels: false, showValues: true, tickDensity: default, tickDensityCustom: 5,
+          type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: Matched,
+              name: Matched, axisId: records.count}, {id: Unmatched, name: Unmatched,
+              axisId: records.count}]}]
+      label_color: ["#FFFFFF"]
+      font_size: '8'
+
+    - name: records_matched
+      title: Records Matched
+      model: bc_s6020_cvst_cfd_txn
+      explore: records
+      type: looker_pie
+      left: 6
+      top: 0
+      height: 4
+      width: 6
+      fields: [records.match_status, records.count_percent]
+      filters:
+        records.system: "-Calypso"
+      sorts: [records.count_percent desc]
+      limit: 500
+      value_labels: legend
+      label_type: labPer
+      stacking: ''
+      show_value_labels: false
+      label_density: 25
+      legend_position: center
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: true
+      limit_displayed_rows: false
+      y_axis_combined: true
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      x_axis_scale: auto
+      y_axis_scale_mode: linear
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      series_types: {}
+      series_colors:
+        Unmatched: "#646569"
+        Matched: "#92c26e"
+
+    - name: unmatched_count
+      title: Unmatched Count
+      model: bc_s6020_cvst_cfd_txn
+      explore: records
+      type: looker_bar
+      left: 12
+      top: 0
+      height: 4
+      width: 6
+      fields: [records.system, records.count]
+      pivots: [records.system]
+      filters:
+        records.match_status: Unmatched
+        records.system: "-Calypso"
+      sorts: [records.count desc 0, records.system]
+      limit: 500
+      stacking: ''
+      show_value_labels: false
+      label_density: 25
+      legend_position: center
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: true
+      limit_displayed_rows: false
+      y_axis_combined: true
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: false
+      show_x_axis_ticks: true
+      x_axis_scale: auto
+      y_axis_scale_mode: linear
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      series_types: {}
+      y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: bottom,
+          showLabels: false, showValues: true, tickDensity: default, tickDensityCustom: 5,
+          type: log, unpinAxis: false, valueFormat: !!null '', series: [{id: BAML, name: BAML,
+              axisId: records.count}, {id: Barclays, name: Barclays, axisId: records.count},
+            {id: BNP, name: BNP, axisId: records.count}, {id: Calypso, name: Calypso,
+              axisId: records.count}, {id: CS, name: CS, axisId: records.count}, {id: JPM,
+              name: JPM, axisId: records.count}, {id: MS, name: MS, axisId: records.count},
+            {id: SG, name: SG, axisId: records.count}]}]
+
+    - name: unmatched_percentage
+      title: Unmatched Percentage
+      model: bc_s6020_cvst_cfd_txn
+      explore: records
+      type: looker_pie
+      left: 18
+      top: 0
+      height: 4
+      width: 6
+      fields: [records.system, records.count_percent]
+      filters:
+        records.match_status: Unmatched
+        records.system: "-Calypso"
+      sorts: [records.system]
+      limit: 500
+      value_labels: legend
+      label_type: labPer
+      stacking: ''
+      show_value_labels: false
+      label_density: 25
+      legend_position: center
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: true
+      limit_displayed_rows: false
+      y_axis_combined: true
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      x_axis_scale: auto
+      y_axis_scale_mode: linear
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      series_types: {}
+
     - name: break_count_by_age_chart
       title: Break Count by Account by Age
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_column
       left: 0
-      top: 0
+      top: 4
       height: 3
       width: 11
       fields: [records.count, records.system, records.age_created]
@@ -88,7 +272,7 @@
       explore: records
       type: table
       left: 0
-      top: 3
+      top: 7
       height: 6
       width: 11
       fields: [records.facing_pb, records.age_created, records.count]
@@ -126,7 +310,7 @@
       explore: records
       type: looker_column
       left: 12
-      top: 0
+      top: 4
       height: 3
       width: 11
       fields: [records.system, records.age_created, records.sum_settle_amt_usd]
@@ -194,7 +378,7 @@
       explore: records
       type: table
       left: 12
-      top: 3
+      top: 7
       height: 6
       width: 11
       fields: [records.facing_pb, records.age_created, records.sum_settle_amt_usd]
@@ -231,7 +415,7 @@
       explore: records
       type: looker_column
       left: 0
-      top: 7
+      top: 11
       height: 3
       width: 11
       fields: [records.count, records.system, records.age_settle]
@@ -298,7 +482,7 @@
       explore: records
       type: table
       left: 0
-      top: 10
+      top: 14
       height: 6
       width: 11
       fields: [records.facing_pb, records.age_settle, records.count]
@@ -335,7 +519,7 @@
       explore: records
       type: looker_column
       left: 12
-      top: 7
+      top: 11
       height: 3
       width: 11
       fields: [records.system, records.age_settle, records.sum_settle_amt_usd]
@@ -403,7 +587,7 @@
       explore: records
       type: table
       left: 12
-      top: 10
+      top: 14
       height: 6
       width: 11
       fields: [records.facing_pb, records.age_settle, records.sum_settle_amt_usd]
@@ -440,7 +624,7 @@
       explore: match_jobs
       type: looker_column
       left: 0
-      top: 14
+      top: 18
       height: 4
       width: 7
       fields: [match_jobs.date_time_stamp_date, match_jobs.sum_matched]
@@ -484,7 +668,7 @@
       explore: user_audit
       type: looker_column
       left: 8
-      top: 14
+      top: 18
       height: 4
       width: 7
       fields: [user_session_audit.full_user_name, user_audit.date_time_stamp_date, user_audit.count]
@@ -541,7 +725,7 @@
       explore: match_jobs
       type: looker_area
       left: 16
-      top: 14
+      top: 18
       height: 4
       width: 7
       fields: [match_jobs.date_time_stamp_date, match_jobs.average_unmatched]
