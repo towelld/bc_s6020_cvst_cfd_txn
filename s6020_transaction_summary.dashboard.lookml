@@ -670,7 +670,7 @@
       show_silhouette: false
       totals_color: "#808080"
       series_colors:
-        match_jobs.sum_matched: "#073C68"
+        match_jobs.sum_matched: "#9EB0C0"
       y_axes: [{label: '', maxValue: !!null '', minValue: !!null '', orientation: left,
           showLabels: false, showValues: true, tickDensity: default, tickDensityCustom: 5,
           type: linear, unpinAxis: false, valueFormat: !!null '', series: [{id: match_jobs.sum_matched,
