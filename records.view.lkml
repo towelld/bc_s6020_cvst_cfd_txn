@@ -364,6 +364,7 @@ view: records {
 
   measure: count {
     type: count
+    value_format: "#,##0.00"
     drill_fields: [transaction_record*]
   }
 
