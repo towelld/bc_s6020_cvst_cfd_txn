@@ -1,7 +1,7 @@
 - dashboard: s6020_transaction_summary
   title: Transaction Summary
   layout: static
-  width: 1632
+  width: 1972
   tile_size: 68
   embed_style:
     background_color: "#ffffff"
@@ -28,7 +28,7 @@
       left: 0
       top: 0
       height: 4
-      width: 8
+      width: 9
       fields: [records.facing_pb, records.match_status, records.count]
       pivots: [records.match_status]
       filters:
@@ -79,10 +79,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_pie
-      left: 8
+      left: 9
       top: 0
       height: 4
-      width: 4
+      width: 5
       fields: [records.match_status, records.count_percent]
       filters:
         records.match_status: Matched,Unmatched
@@ -125,10 +125,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_bar
-      left: 12
+      left: 15
       top: 0
       height: 4
-      width: 8
+      width: 9
       fields: [records.facing_pb, records.count]
       pivots: [records.facing_pb]
       filters:
@@ -175,10 +175,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_pie
-      left: 20
+      left: 24
       top: 0
       height: 4
-      width: 4
+      width: 5
       fields: [records.facing_pb, records.count_percent]
       filters:
         records.match_status: Unmatched
@@ -221,7 +221,7 @@
       left: 0
       top: 4
       height: 3
-      width: 11
+      width: 14
       fields: [records.count, records.system, records.age_created]
       pivots: [records.age_created]
       fill_fields: [records.age_created]
@@ -284,7 +284,7 @@
       left: 0
       top: 7
       height: 6
-      width: 11
+      width: 14
       fields: [records.facing_pb, records.age_created, records.count]
       pivots: [records.age_created]
       fill_fields: [records.age_created]
@@ -320,10 +320,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_column
-      left: 12
+      left: 15
       top: 4
       height: 3
-      width: 11
+      width: 14
       fields: [records.system, records.age_created, records.sum_settle_amt_usd]
       pivots: [records.age_created]
       fill_fields: [records.age_created]
@@ -388,10 +388,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: table
-      left: 12
+      left: 15
       top: 7
       height: 6
-      width: 11
+      width: 14
       fields: [records.facing_pb, records.age_created, records.sum_settle_amt_usd]
       pivots: [records.age_created]
       fill_fields: [records.age_created]
@@ -429,7 +429,7 @@
       left: 0
       top: 11
       height: 3
-      width: 11
+      width: 14
       fields: [records.count, records.system, records.age_settle]
       pivots: [records.age_settle]
       fill_fields: [records.age_settle]
@@ -496,7 +496,7 @@
       left: 0
       top: 14
       height: 6
-      width: 11
+      width: 14
       fields: [records.facing_pb, records.age_settle, records.count]
       pivots: [records.age_settle]
       fill_fields: [records.age_settle]
@@ -531,10 +531,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_column
-      left: 12
+      left: 15
       top: 11
       height: 3
-      width: 11
+      width: 14
       fields: [records.system, records.age_settle, records.sum_settle_amt_usd]
       pivots: [records.age_settle]
       fill_fields: [records.age_settle]
@@ -599,10 +599,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: table
-      left: 12
+      left: 15
       top: 14
       height: 6
-      width: 11
+      width: 14
       fields: [records.facing_pb, records.age_settle, records.sum_settle_amt_usd]
       pivots: [records.age_settle]
       fill_fields: [records.age_settle]
@@ -640,7 +640,7 @@
       left: 0
       top: 18
       height: 4
-      width: 7
+      width: 9
       fields: [match_jobs.date_time_stamp_date, match_jobs.sum_matched]
       fill_fields: [match_jobs.date_time_stamp_date]
       filters:
@@ -681,10 +681,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: user_audit
       type: looker_column
-      left: 8
+      left: 10
       top: 18
       height: 4
-      width: 7
+      width: 9
       fields: [user_session_audit.full_user_name, user_audit.date_time_stamp_date, user_audit.count]
       pivots: [user_session_audit.full_user_name]
       fill_fields: [user_audit.date_time_stamp_date]
@@ -738,10 +738,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: match_jobs
       type: looker_area
-      left: 16
+      left: 20
       top: 18
       height: 4
-      width: 7
+      width: 9
       fields: [match_jobs.date_time_stamp_date, match_jobs.average_unmatched]
       filters:
         match_jobs.date_time_stamp_date: 7 days
