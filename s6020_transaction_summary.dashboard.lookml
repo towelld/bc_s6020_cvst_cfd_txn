@@ -1,8 +1,8 @@
 - dashboard: s6020_transaction_summary
   title: Transaction Summary
   layout: static
-  width: 1972
-  tile_size: 68
+  width: 1276
+  tile_size: 44
   embed_style:
     background_color: "#ffffff"
     show_title: true
