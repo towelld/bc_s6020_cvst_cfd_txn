@@ -1,8 +1,8 @@
 - dashboard: s6020_transaction_summary
   title: Transaction Summary
   layout: static
-  width: 1276
-  tile_size: 44
+  width: 1280
+  tile_size: 100
   embed_style:
     background_color: "#ffffff"
     show_title: true
@@ -28,7 +28,7 @@
       left: 0
       top: 0
       height: 4
-      width: 9
+      width: 8
       fields: [records.facing_pb, records.match_status, records.count]
       pivots: [records.match_status]
       filters:
@@ -79,10 +79,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_pie
-      left: 9
+      left: 8
       top: 0
       height: 4
-      width: 5
+      width: 4
       fields: [records.match_status, records.count_percent]
       filters:
         records.match_status: Matched,Unmatched
@@ -125,10 +125,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_bar
-      left: 15
-      top: 0
+      left: 0
+      top: 4
       height: 4
-      width: 9
+      width: 8
       fields: [records.facing_pb, records.count]
       pivots: [records.facing_pb]
       filters:
@@ -175,10 +175,10 @@
       model: bc_s6020_cvst_cfd_txn
       explore: records
       type: looker_pie
-      left: 24
-      top: 0
+      left: 8
+      top: 4
       height: 4
-      width: 5
+      width: 4
       fields: [records.facing_pb, records.count_percent]
       filters:
         records.match_status: Unmatched
@@ -219,9 +219,9 @@
       explore: records
       type: looker_column
       left: 0
-      top: 4
-      height: 3
-      width: 14
+      top: 8
+      height: 4
+      width: 12
       fields: [records.count, records.system, records.age_created]
       pivots: [records.age_created]
       fill_fields: [records.age_created]
